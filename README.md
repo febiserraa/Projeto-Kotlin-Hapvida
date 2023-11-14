@@ -1,2 +1,0 @@
-# Global_Android
-Global_solution_android_2023

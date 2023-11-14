@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Global_solution_2sem_hapvida" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/orange</item>
+    </style>
+
+    <style name="Theme.Global_solution_2sem_hapvida" parent="Base.Theme.Global_solution_2sem_hapvida" />
+</resources>
