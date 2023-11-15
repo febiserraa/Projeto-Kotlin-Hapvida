@@ -7,7 +7,6 @@ import model.Paciente
 
 @Dao
 interface PacienteDao {
-
     @Insert
     fun insert(paciente: Paciente)
 

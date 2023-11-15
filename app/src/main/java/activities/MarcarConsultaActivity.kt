@@ -64,7 +64,6 @@ class MarcarConsultaActivity : AppCompatActivity() {
                 null // Retorna nulo pois nada foi inserido
             }
 
-            // Verificar se algum campo está vazio
             if (data.isBlank() || hora.isBlank() || unidade.isNullOrBlank() || medico.isNullOrBlank()) {
                 Toast.makeText(this@MarcarConsultaActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -83,7 +82,6 @@ class MarcarConsultaActivity : AppCompatActivity() {
                         pacienteCpf = paciente.cpf
                     )
 
-                    // Corrotina para inserir a consulta no banco de dados
                     consultaDao.insert(novaConsulta)
 
                     withContext(Dispatchers.Main) {

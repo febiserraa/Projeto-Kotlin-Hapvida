@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity() {
     private fun startRegisterActivity() {
         val intent = Intent(this@MainActivity, RegisterActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun startHomeActivity(cpf: String) {

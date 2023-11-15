@@ -19,7 +19,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private var INSTANCE: AppDatabase? = null
-
         fun getDatabase(context: Context): AppDatabase {
             if (INSTANCE != null) {
                 return INSTANCE!!

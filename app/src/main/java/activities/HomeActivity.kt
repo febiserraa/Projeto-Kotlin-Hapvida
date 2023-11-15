@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import br.com.fiap.global_solution_2sem_hapvida.databinding.ActivityHomeBinding
 import database.AppDatabase
 import database.PacienteDao
@@ -41,6 +42,23 @@ class HomeActivity : AppCompatActivity() {
         binding.btnVerConsultas.setOnClickListener(View.OnClickListener {
             startVerConsultasActivity()
         })
+
+        binding.btnSair.setOnClickListener(View.OnClickListener {
+            val builder = AlertDialog.Builder(this@HomeActivity)
+            builder.setTitle("Confirmar Saída")
+            builder.setMessage("Tem certeza de que deseja sair?")
+
+            builder.setPositiveButton("Sim") { _, _ ->
+                startLoginActivity()
+            }
+
+            builder.setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
+        })
     }
 
     private fun setWelcomeMessage(cpf: String) {
@@ -73,5 +91,11 @@ class HomeActivity : AppCompatActivity() {
         val intent = Intent(this@HomeActivity, VerConsultasActivity::class.java)
         intent.putExtra("paciente_cpf" , pacienteCPF)
         startActivity(intent)
+    }
+
+    private fun startLoginActivity() {
+        val intent = Intent(this@HomeActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

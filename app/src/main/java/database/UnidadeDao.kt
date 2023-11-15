@@ -8,7 +8,6 @@ import model.Unidade
 
 @Dao
 interface UnidadeDao {
-
     @Insert
     fun insertMultipleUnidades(unidades: List<Unidade>)
 

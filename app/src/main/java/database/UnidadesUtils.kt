@@ -110,9 +110,6 @@ class UnidadesUtils(private val context: Context) {
             localizacao = "Rua Bernardino de Campos, 912 - Centro\nRibeirão Preto - SP",
             imagem = loadImageAsByteArray("hapvida-unidade.png")
         ))
-
-        // Adicione outras unidades com imagens aqui...
-
         return unidades
     }
 }

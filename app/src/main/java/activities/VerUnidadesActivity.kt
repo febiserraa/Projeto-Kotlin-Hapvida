@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import model.Unidade
 
 class VerUnidadesActivity : AppCompatActivity() {
 
@@ -25,7 +24,9 @@ class VerUnidadesActivity : AppCompatActivity() {
 
         GlobalScope.launch(Dispatchers.IO) {
 
-            inserirUnidades()
+            if (!isInsertedUnidades()) {
+                insertUnidades()
+            }
 
             val unidades = AppDatabase.getDatabase(this@VerUnidadesActivity).unidadeDao().getAllUnidades()
 
@@ -39,7 +40,11 @@ class VerUnidadesActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun inserirUnidades() {
+    private fun isInsertedUnidades(): Boolean {
+        return AppDatabase.getDatabase(this@VerUnidadesActivity).unidadeDao().getAllUnidades().isNotEmpty()
+    }
+
+    private suspend fun insertUnidades() {
         try {
             UnidadesUtils(this@VerUnidadesActivity).inserirUnidades()
             showToast("Unidades inseridas com sucesso!")
